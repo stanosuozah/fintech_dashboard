@@ -158,11 +158,11 @@ const Overview = () => {
 	}, [comparison]);
 	return (
 		<div className="flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
-				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-4 py-3">
-					<div className="flex justify-between gap-4  w-full mt-4">
-						<div className="flex flex-col gap-2 w-1/3">
+			<div className="relative h-auto md:w-1/5"></div>
+			<div className="md:flex-1 w-full h-full">
+				<div className="flex flex-col  w-full md:gap-3 bg-[#E8E8E8] text-left px-2 md:px-4 py-3">
+					<div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 w-full md:mt-4">
+						<div className="flex flex-col  gap-1 md:gap-2 w-full ">
 							<h3 className="font-Inter font-medium text-xl text-[#878787]">
 								Total Balance
 							</h3>
@@ -178,7 +178,7 @@ const Overview = () => {
 								/>
 							</div>
 						</div>
-						<div className="flex flex-col gap-2 w-1/3">
+						<div className="flex flex-col gap-1 md:gap-2 w-full ">
 							<h3 className="font-Inter font-medium text-xl text-[#878787]">
 								Goals
 							</h3>
@@ -220,7 +220,7 @@ const Overview = () => {
 											</svg>
 										</Link>
 									</div>
-									<span className="fpmt-Inter font-medium text-[14px] text-[#525256]">
+									<span className="fontt-Inter font-medium text-[14px] text-[#525256]">
 										{date.toLocaleDateString()}
 									</span>
 								</div>
@@ -258,7 +258,7 @@ const Overview = () => {
 								</div>
 							</div>
 						</div>
-						<div className="flex flex-col gap-2 w-1/3">
+						<div className="flex flex-col gap-2 w-full ">
 							<div className="flex justify-between items-center">
 								<h3 className="font-Inter font-medium text-xl text-[#878787]">
 									Upcoming Bill
@@ -289,8 +289,8 @@ const Overview = () => {
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-between gap-4">
-						<div className="flex flex-col w-1/3">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div className="flex flex-col w-full ">
 							<div className="flex justify-between items-center px-1">
 								<h3 className="font-Inter font-medium text-xl text-[#878787]">
 									Recent Transactions
@@ -462,8 +462,8 @@ const Overview = () => {
 								)}
 							</div>
 						</div>
-						<div className="w-2/3 grid grid-cols-1">
-							<div className="flex flex-col gap-4 h-1/2 relative">
+						<div className="w-full grid grid-cols-1">
+							<div className="flex flex-col gap-4 lg:h-auto  relative">
 								<div className="absolute top-12 flex justify-start items-center gap-2">
 									<select
 										value={comparison}
@@ -515,7 +515,7 @@ const Overview = () => {
 								<h3 className="font-Inter font-medium text-xl text-[#878787]">
 									Statistics
 								</h3>
-								<div className="bg-white rounded-lg px-3 w-full py-2 h-auto">
+								<div className="bg-white rounded-lg px-3 w-full py-2 h-auto ">
 									{weekly && <Bar options={options} data={data} />}
 									{monthly && <Bar options={options} data={dataMonth} />}
 									{yearly && <Bar options={options} data={dataYear} />}
@@ -528,7 +528,8 @@ const Overview = () => {
 									)} */}
 								</div>
 							</div>
-							<div className="flex flex-col gap-2 h-1/2">
+
+							<div className="grid grid-cols-1">
 								<div className="flex justify-between items-center">
 									<h3 className="font-Inter font-medium text-xl text-[#878787]">
 										Expenses Breakdown
@@ -538,7 +539,7 @@ const Overview = () => {
 									</p>
 								</div>
 
-								<div className="bg-white px-3 py-3 gap-16 rounded-lg grid grid-cols-3 ">
+								<div className="bg-white px-2 py-3 gap-2 grid-cols-2 md:gap-16 rounded-lg grid md:grid-cols-3 ">
 									<ExpenseBreakdownCard
 										expenseCategory="Housing"
 										expenseAmount="250.00"

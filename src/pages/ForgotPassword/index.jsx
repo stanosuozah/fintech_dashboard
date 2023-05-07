@@ -67,13 +67,13 @@ const ForgotPassword = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen w-full">
+		<div className="flex flex-col md:justify-center md:items-center min-h-screen w-full px-4 mt-10 md:mt-0 md:px-0">
 			{toast && <Toast message={toast} />}
 			<div className="max-w-sm flex flex-col gap-y-8  w-full">
 				<div className="text-center flex flex-col gap-y-4 justify-center items-center w-full">
 					<Logo />
 					<h1 className="text-2xl font-bold font-Inter">Forgot Password?</h1>
-					<p className="font-Inter text-sm text-[#666666] max-w-[32ch]">
+					<p className="font-Inter text-sm md:text-base text-[#666666] max-w-[32ch]">
 						Enter your email address to get the password reset link
 					</p>
 				</div>
@@ -91,7 +91,7 @@ const ForgotPassword = () => {
 
 					<Link
 						to="/login"
-						className="font-Inter text-[#999DA3] font-bold text-sm cursor-pointer ml-1"
+						className="font-Inter text-[#999DA3] font-bold text-sm cursor-pointer ml-1 md:text-base"
 					>
 						Back to login
 					</Link>

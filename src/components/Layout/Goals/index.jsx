@@ -55,13 +55,13 @@ const options = {
 
 const Goals = () => {
 	return (
-		<div className="flex px-1">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
-				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-3 py-3">
+		<div className="md:flex ">
+			<div className="relative h-auto w-full md:w-1/5"></div>
+			<div className="w-full md:flex-1 h-full">
+				<div className="grid grid-cols-1 gap-2 bg-[#E8E8E8] text-left md:px-3 py-3">
 					<h1 className="text-[#878787] font-bold text-xl">Goals</h1>
-					<div className="flex justify-between gap-3 ">
-						<div className="w-2/5 p-3 flex flex-col gap-4 rounded-md shadow-md bg-white pb-0">
+					<div className="grid grid-cols-1 md:grid-cols-2 ">
+						<div className="md:w-4/5 w-full p-3 flex flex-col gap-4 rounded-md shadow-md bg-white pb-0">
 							<div className="flex justify-between border-b-2 pb-4">
 								<h1 className="font-Inter text-[#191919] font-bold text-sm">
 									Savings Goal
@@ -106,14 +106,14 @@ const Goals = () => {
 								<AdjustButton label="Adjust Goal" />
 							</div>
 						</div>
-						<div className="bg-white flex-1 p-3 rounded-md shadow-md">
+						<div className="bg-white md:flex-1 p-3 rounded-md shadow-md">
 							<Line options={options} data={data} />
 						</div>
 					</div>
-					<h1 className="text-[#878787] font-bold text-xl">
+					<h1 className="text-[#878787] font-bold text-base md:text-xl">
 						Expenses Goals by Category
 					</h1>
-					<div className="grid grid-cols-3 gap-4">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
 						<ExpenseGoalCard expenseCategory="Housing" expenseTotal="250.00" />
 						<ExpenseGoalCard expenseCategory="Food" expenseTotal="250.00" />
 						<ExpenseGoalCard

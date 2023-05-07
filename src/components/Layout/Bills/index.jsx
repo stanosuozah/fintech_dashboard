@@ -4,8 +4,8 @@ import DateCard from "../../Common/DateCard";
 const Bills = () => {
 	return (
 		<div className="flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
+			<div className="relative h-auto w-full md:w-1/5"></div>
+			<div className="md:flex-1 w-full h-full">
 				<div className="flex flex-col gap-3 bg-white text-left px-3 py-3">
 					<h1 className="text-[#878787] font-bold text-xl">Upcoming Bills</h1>
 					<div className="">
@@ -13,7 +13,7 @@ const Bills = () => {
 							<div className="-m-1.5 overflow-x-auto">
 								<div className="p-1.5 min-w-full inline-block align-middle">
 									<div className="overflow-hidden ">
-										<table className="min-w-full divide-y divide-gray-200 ">
+										<table className="min-w-full divide-y divide-gray-200 w-full">
 											<thead>
 												<tr>
 													<th

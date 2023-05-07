@@ -34,13 +34,13 @@ const SideBar = ({ user }) => {
 		}, 4000);
 	};
 	return (
-		<div className="bg-[#191919] fixed w-1/5 h-screen z-10 inset-y-0 pt-10 px-6">
+		<div className="py-3 bg-[#191919] flex justify-between md:block  md:fixed md:w-1/5 md:h-screen z-10 inset-y-0 md:pt-10 md:px-6">
 			{loader && <Loader />}
-			<div className="flex items-center justify-center">
+			<div className="hidden  md:flex md:items-center md:justify-center">
 				<LogoWhite />
 			</div>
 
-			<ul className="mt-10 flex flex-col gap-2 px-4">
+			<ul className=" justify-between overflow-x-auto md:mt-10 flex md:flex-col gap-2 md:px-4">
 				{menus.map((menu, index) => (
 					<li>
 						<NavLink
@@ -64,12 +64,12 @@ const SideBar = ({ user }) => {
 			</ul>
 			<div
 				onClick={handleLogOut}
-				className="inline-flex gap-3 justify-right w-full  mt-6 mb-6 bg-black/75 px-4 py-3 cursor-pointer"
+				className="hidden md:inline-flex gap-3 justify-right w-full  mt-6 mb-6 bg-black/75 px-4 py-3 cursor-pointer"
 			>
 				<LogOutIcon />
 				<p className="text-white text-sm font-Inter  rounded-md ">Logout</p>
 			</div>
-			<div className="flex justify-start gap-6 items-center">
+			<div className="hidden md:flex justify-start gap-6 items-center">
 				<img
 					src="images/stanimage.jpg"
 					width={32}

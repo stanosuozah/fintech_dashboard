@@ -14,11 +14,13 @@ const Balance = () => {
 
 	return (
 		<div className="flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
+			<div className="relative h-auto md:w-1/5"></div>
+			<div className="w-full md:flex-1 h-full ">
 				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-3 py-3">
-					<h1 className="text-[#878787] font-bold text-xl">Balances</h1>
-					<div className="grid grid-cols-3 gap-4">
+					<h1 className="text-[#878787] font-bold text-lg md:text-xl">
+						Balances
+					</h1>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3">
 						<BalanceCard
 							balanceName="Credit Card"
 							bankName="Master Card"
@@ -73,7 +75,9 @@ const Balance = () => {
 							cardImage="/images/visa-credit-card.png"
 							onClick={handleAccountDetails}
 						/>
-						<EmptyBalanceCard />
+						<div className="flex justify-center">
+							<EmptyBalanceCard />
+						</div>
 					</div>
 				</div>
 			</div>

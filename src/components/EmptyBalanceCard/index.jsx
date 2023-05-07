@@ -10,7 +10,7 @@ const EmptyBalanceCard = ({
 	totalAmount,
 }) => {
 	return (
-		<div className="flex flex-col text-center gap-1 px-12 py-8  justify-center max-w-xs max-h-72 bg-white rounded-lg shadow-xl">
+		<div className="flex flex-col text-center gap-1 px-12 py-8 w-full justify-center md:max-w-xs max-h-72 bg-white rounded-lg shadow-xl">
 			<div className="">
 				<Button label="Add Accounts" />
 			</div>

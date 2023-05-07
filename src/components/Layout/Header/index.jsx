@@ -5,18 +5,18 @@ import GreaterThan from "../../../assets/icons/GreaterThan";
 const Header = ({ user }) => {
 	const date = new Date();
 	return (
-		<header className="flex justify-between gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
-			<p className="flex-1 flex justify-start font-Inter items-center text-[#191919] text-2xl font-bold">
+		<header className="flex justify-between w-full gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
+			<p className="md:flex-1 flex justify-start font-Inter md:items-center items-center text-[#191919] md:text-2xl text-base font-bold">
 				Hello, {user?.name?.split(" ")[0]}
-				<span className="text-[#9F9F9F] text-sm ml-4 inline-flex items-center">
-					<div className="mr-2 inline-flex">
+				<span className="text-[#9F9F9F] text-xs md:text-sm ml-4 inline-flex items-center">
+					<div className="hidden md:mr-2 md:inline-flex">
 						<GreaterThan />
 						<GreaterThan />
 					</div>
 					{date.toDateString()}
 				</span>
 			</p>
-			<div className="flex items-center w-full max-w-lg gap-10 justify-end">
+			<div className="flex items-center w-full md:max-w-lg gap-3 md:gap-6 lg:gap-10 justify-end">
 				<Notification />
 				<div className="relative max-w-sm w-full ">
 					<label for="hs-table-search" className="sr-only">

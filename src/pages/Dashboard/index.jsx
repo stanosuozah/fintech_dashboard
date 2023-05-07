@@ -47,10 +47,10 @@ const Dashboard = () => {
 	}, [token]);
 
 	return (
-		<div className="flex">
+		<div className="flex flex-col md:flex-row gap-0.5 md:gap-0">
 			{loader && <AuthLoader />}
-			<div className="relative h-auto w-1/5" />
-			<div className="flex-1 h-full border-b-slate-50 border-b-2 ">
+			<div className="relative h-auto md:w-1/5" />
+			<div className="md:flex-1 md:h-full border-b-slate-50 border-b-2 ">
 				<Header user={user} />
 			</div>
 			{/* Side bar is fixed, so out of box model */}

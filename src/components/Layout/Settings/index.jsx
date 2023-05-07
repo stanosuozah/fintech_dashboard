@@ -4,7 +4,7 @@ import Button from "../../Buttons";
 const Settings = () => {
 	const [tab, setTab] = useState("account");
 	return (
-		<div className="flex">
+		<div className="md:flex">
 			<div className="relative h-auto w-1/5"></div>
 			<div className="flex-1 h-full px-3 py-2">
 				<div className="px-3 py-3 flex flex-col rounded-lg bg-white shadow-xl">

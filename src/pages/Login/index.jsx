@@ -64,9 +64,9 @@ const Login = () => {
 		}
 	}, [token]);
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen w-full">
+		<div className="flex flex-col justify-center items-center min-h-screen w-full px-4 md:px-0 ">
 			{loader && <AuthLoader />}
-			<div className="max-w-sm flex flex-col gap-y-12  w-full">
+			<div className="max-w-sm flex flex-col gap-y-12  w-full px">
 				<div className="text-center flex justify-center items-center w-full">
 					<Logo />
 				</div>

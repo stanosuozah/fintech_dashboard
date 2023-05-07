@@ -9,8 +9,8 @@ const Transactions = () => {
 
 	return (
 		<div className="flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
+			<div className="relative w-full h-auto md:w-1/5"></div>
+			<div className="md:flex-1 h-full w-full">
 				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-3 py-3">
 					<h1 className="text-[#878787] font-bold text-xl">
 						Recent Transactions
@@ -60,7 +60,7 @@ const Transactions = () => {
 					<div className="flex flex-col bg-white">
 						<div className="-m-1.5 overflow-x-auto">
 							<div className="p-1.5 min-w-full inline-block align-middle">
-								<div className="overflow-hidden">
+								<div className="overflow-auto md:overflow-hidden ">
 									{tab === "all" ? (
 										<table className="min-w-full divide-y bg-white divide-gray-200 ">
 											<thead>

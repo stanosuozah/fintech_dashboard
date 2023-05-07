@@ -86,21 +86,21 @@ const options = {
 
 const Expenses = () => {
 	return (
-		<div className="flex px-2 ">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
-				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-2 py-3">
-					<h1 className="text-[#878787] font-bold text-xl">
+		<div className="md:flex px-1 ">
+			<div className="relative h-auto w-full md:w-1/5"></div>
+			<div className="md:flex-1 w-full h-full ">
+				<div className="flex flex-col gap-3  bg-[#E8E8E8] text-left px-2 py-3">
+					<h1 className="text-[#878787] font-boldtext-base md:text-xl">
 						Expenses Comparison
 					</h1>
 					<div className="bg-white rounded-lg p-3">
 						{/* <Bar options={options} data={data} /> */}
 						<Bar options={options} data={data} />
 					</div>
-					<h1 className="text-[#878787] font-bold text-xl">
+					<h1 className="text-[#878787] font-bold text-base md:text-xl">
 						Expense Breakdown
 					</h1>
-					<div className="grid grid-cols-3 gap-3 bg-white p-2">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 bg-white p-2">
 						<ExpenseCard
 							chartIcon={up}
 							expenseCategory="Housing"
