@@ -51,7 +51,7 @@ const Dashboard = () => {
 	return (
 		<div className="flex flex-col md:flex-row gap-0.5 md:gap-0">
 			{loader && <AuthLoader />}
-			<div className="relative h-auto md:w-1/5" />
+			<div className="relative h-auto md:w-1/3 lg:w-1/5" />
 			<div className="md:flex-1 md:h-full border-b-slate-50 border-b-2 ">
 				<Header user={user} />
 			</div>

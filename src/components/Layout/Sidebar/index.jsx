@@ -34,7 +34,7 @@ const SideBar = ({ user }) => {
 		}, 4000);
 	};
 	return (
-		<div className="py-3 bg-[#191919] flex justify-between md:block  md:fixed md:w-1/5 md:h-screen z-10 inset-y-0 md:pt-10 md:px-6">
+		<div className="py-3 bg-[#191919] flex justify-between md:block  md:fixed md:w-1/3 lg:w-1/5 md:h-screen z-10 inset-y-0 md:pt-10 md:px-6">
 			{loader && <Loader />}
 			<div className="hidden  md:flex md:items-center md:justify-center">
 				<LogoWhite />

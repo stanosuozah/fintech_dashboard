@@ -5,8 +5,8 @@ const Settings = () => {
 	const [tab, setTab] = useState("account");
 	return (
 		<div className="md:flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full px-3 py-2">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
 				<div className="px-3 py-3 flex flex-col rounded-lg bg-white shadow-xl">
 					<div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
 						<ul className="flex flex-wrap -mb-px">

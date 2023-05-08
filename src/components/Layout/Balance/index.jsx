@@ -14,8 +14,8 @@ const Balance = () => {
 
 	return (
 		<div className="flex">
-			<div className="relative h-auto md:w-1/5"></div>
-			<div className="w-full md:flex-1 h-full ">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
 				<div className="flex flex-col gap-3 bg-[#E8E8E8] text-left px-3 py-3">
 					<h1 className="text-[#878787] font-bold text-lg md:text-xl">
 						Balances

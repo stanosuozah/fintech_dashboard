@@ -56,17 +56,17 @@ const options = {
 const Goals = () => {
 	return (
 		<div className="md:flex ">
-			<div className="relative h-auto w-full md:w-1/5"></div>
-			<div className="w-full md:flex-1 h-full">
-				<div className="grid grid-cols-1 gap-2 bg-[#E8E8E8] text-left md:px-3 py-3">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
+				<div className="flex flex-col gap-2 bg-[#E8E8E8] text-left px-2 md:px-3 py-3">
 					<h1 className="text-[#878787] font-bold text-xl">Goals</h1>
-					<div className="grid grid-cols-1 md:grid-cols-2 ">
-						<div className="md:w-4/5 w-full p-3 flex flex-col gap-4 rounded-md shadow-md bg-white pb-0">
+					<div className="flex flex-col md:flex-row md:justify-between gap-2 md:gap-3 ">
+						<div className="md:w-1/2 w-full p-3 flex flex-col gap-4 rounded-md shadow-md bg-white ">
 							<div className="flex justify-between border-b-2 pb-4">
 								<h1 className="font-Inter text-[#191919] font-bold text-sm">
 									Savings Goal
 								</h1>
-								<select>
+								<select className="font-Inter text-xs font-medium">
 									<option className="font-Inter text-sm">
 										01 May - 31 May
 									</option>
@@ -106,7 +106,7 @@ const Goals = () => {
 								<AdjustButton label="Adjust Goal" />
 							</div>
 						</div>
-						<div className="bg-white md:flex-1 p-3 rounded-md shadow-md">
+						<div className="bg-white md:w-1/2 lg:flex-1 p-3 rounded-md shadow-md">
 							<Line options={options} data={data} />
 						</div>
 					</div>

@@ -87,10 +87,10 @@ const options = {
 const Expenses = () => {
 	return (
 		<div className="md:flex px-1 ">
-			<div className="relative h-auto w-full md:w-1/5"></div>
-			<div className="md:flex-1 w-full h-full ">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
 				<div className="flex flex-col gap-3  bg-[#E8E8E8] text-left px-2 py-3">
-					<h1 className="text-[#878787] font-boldtext-base md:text-xl">
+					<h1 className="text-[#878787] font-bold text-base md:text-xl">
 						Expenses Comparison
 					</h1>
 					<div className="bg-white rounded-lg p-3">

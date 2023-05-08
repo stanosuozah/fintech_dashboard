@@ -26,7 +26,7 @@ const Header = ({ user }) => {
 	};
 
 	return (
-		<header className="relative flex justify-between w-full gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
+		<header className="relative flex justify-between w-full gap-2 md:gap-0 lg:gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
 			{loader && <Loader />}
 			<div className="z-40 md:hidden lg:hidden">
 				{navIsOpen ? (
@@ -43,21 +43,23 @@ const Header = ({ user }) => {
 						: "md:flex hidden"
 				}`}
 			>
-				<div className="flex justify-right gap-2 items-center mt-2 md:items-start md:mt-0 md:gap-0 md:flex">
+				<div className="flex justify-end md:justify-between  gap-2 items-center  mt-2 md:items-start md:mt-0 md:gap-0 md:flex">
 					<img
 						src="images/stanimage.jpg"
 						width={32}
 						height={32}
 						className="rounded-full md:hidden"
 					/>
-					<p className="md:flex-1  flex md:flex md:justify-start  text-white font-Inter md:items-center items-start md:text-[#191919] md:text-2xl text-base font-bold">
+					<p className="md:flex-1  flex md:flex md:justify-start   text-white font-Inter md:items-center items-start md:text-[#191919] md:text-base lg:text-2xl text-base font-bold">
 						Hi, {user?.name?.split(" ")[0]}
 						<span className="text-[#9F9F9F] text-xs md:text-sm md:ml-4 inline-flex items-center">
-							<div className="hidden md:mr-2 md:inline-flex">
+							<div className="hidden md:mr-2 md:inline-flex ">
 								<GreaterThan />
 								<GreaterThan />
 							</div>
-							<span className="hidden md:block">{date.toDateString()}</span>
+							<span className="hidden md:flex md:text-xs">
+								{date.toDateString()}
+							</span>
 						</span>
 					</p>
 				</div>

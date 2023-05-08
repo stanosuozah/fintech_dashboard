@@ -28,6 +28,8 @@ import ExpenseDownIcon from "../../../assets/icons/ExpenseDownIcon";
 import ExpenseUpIcon from "../../../assets/icons/ExpenseUpIcon";
 import GameIcon from "../../../assets/icons/GameIcon";
 import OthersIcon from "../../../assets/icons/OthersIcon";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 // import faker from "faker";
 
 ChartJS.register(
@@ -158,12 +160,12 @@ const Overview = () => {
 	}, [comparison]);
 	return (
 		<div className="flex">
-			<div className="relative h-auto md:w-1/5"></div>
-			<div className="md:flex-1 w-full h-full">
-				<div className="flex flex-col  w-full md:gap-3 bg-[#E8E8E8] text-left px-2 md:px-4 py-3">
-					<div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 w-full md:mt-4">
-						<div className="flex flex-col  gap-1 md:gap-2 w-full ">
-							<h3 className="font-Inter font-medium text-xl text-[#878787]">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
+				<div className="flex flex-col  lg:flex-nowrap lg:flex  w-full md:gap-3 bg-[#E8E8E8] text-left px-2 md:px-4 py-3">
+					<div className="flex flex-col md:flex-row   md:flex-wrap lg:flex-nowrap lg:flex lg:justify-between md:flex md:justify-between md:gap-3 w-full md:mt-4">
+						<div className="flex flex-col  md:w-[48.5%] lg:w-1/3 lg:flex  gap-1 md:gap-2 w-full ">
+							<h3 className="font-Inter font-medium text-lg text-[#878787]">
 								Total Balance
 							</h3>
 							<div className="flex flex-col gap-1 px-3 py-2 w-full h-[232px] bg-white rounded-lg shadow-xl">
@@ -178,8 +180,8 @@ const Overview = () => {
 								/>
 							</div>
 						</div>
-						<div className="flex flex-col gap-1 md:gap-2 w-full ">
-							<h3 className="font-Inter font-medium text-xl text-[#878787]">
+						<div className="flex flex-col   md:w-[48.5%] lg:w-1/3 gap-1 md:gap-2 w-full ">
+							<h3 className="font-Inter font-medium text-lg text-[#878787]">
 								Goals
 							</h3>
 							<div className="flex flex-col gap-7 px-4 py-5 w-full h-[232px] bg-white rounded-lg shadow-xl">
@@ -258,9 +260,9 @@ const Overview = () => {
 								</div>
 							</div>
 						</div>
-						<div className="flex flex-col gap-2 w-full ">
-							<div className="flex justify-between items-center">
-								<h3 className="font-Inter font-medium text-xl text-[#878787]">
+						<div className="flex lg:flex  lg:w-1/3  flex-col gap-2 w-full ">
+							<div className="flex lg:flex justify-between items-center">
+								<h3 className="font-Inter font-medium text-lg text-[#878787]">
 									Upcoming Bill
 								</h3>
 								<Link>
@@ -289,10 +291,10 @@ const Overview = () => {
 							</div>
 						</div>
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-						<div className="flex flex-col w-full ">
+					<div className="flex flex-col lg:flex md:flex-col md:col-span-12  lg:flex-row md:justify-between gap-2 md:gap-3">
+						<div className="flex lg:flex md:col-span-6 flex-col w-full ">
 							<div className="flex justify-between items-center px-1">
-								<h3 className="font-Inter font-medium text-xl text-[#878787]">
+								<h3 className="font-Inter font-medium text-lg text-[#878787]">
 									Recent Transactions
 								</h3>
 								<Link>
@@ -462,7 +464,7 @@ const Overview = () => {
 								)}
 							</div>
 						</div>
-						<div className="w-full grid grid-cols-1">
+						<div className="w-full flex flex-col gap-2 lg:flex ">
 							<div className="flex flex-col gap-4 lg:h-auto  relative">
 								<div className="absolute top-12 flex justify-start items-center gap-2">
 									<select
@@ -512,7 +514,7 @@ const Overview = () => {
 									</svg>
 								</Link> */}
 
-								<h3 className="font-Inter font-medium text-xl text-[#878787]">
+								<h3 className="font-Inter font-medium text-lg text-[#878787]">
 									Statistics
 								</h3>
 								<div className="bg-white rounded-lg px-3 w-full py-2 h-auto ">
@@ -529,9 +531,9 @@ const Overview = () => {
 								</div>
 							</div>
 
-							<div className="grid grid-cols-1">
+							<div className="flex flex-col gap-2">
 								<div className="flex justify-between items-center">
-									<h3 className="font-Inter font-medium text-xl text-[#878787]">
+									<h3 className="font-Inter font-medium text-lg text-[#878787]">
 										Expenses Breakdown
 									</h3>
 									<p className="font-Inter font-medium text-xs text-[#878787]">
