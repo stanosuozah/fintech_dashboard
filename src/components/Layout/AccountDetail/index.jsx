@@ -8,17 +8,19 @@ import { useParams } from "react-router-dom";
 const AccountDetail = () => {
 	return (
 		<div className="flex">
-			<div className="relative h-auto w-1/5"></div>
-			<div className="flex-1 h-full">
+			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
+			<div className="md:w-2/3 lg:flex-1 w-full h-full">
 				<div className="flex flex-col gap-3">
 					<div className=" flex flex-col gap-3 bg-[#E8E8E8] text-left px-3 py-3">
-						<h1 className="text-[#878787] font-bold text-xl">
+						<h1 className="text-[#878787] font-bold text-lg">
 							Account Details
 						</h1>
 						<div className="flex bg-white rounded-lg flex-col gap-6 px-6 py-6">
-							<div className="flex justify-start gap-32">
+							<div className="flex flex-col md:flex-row md:justify-start gap:3 md:gap-32">
 								<div className="flex flex-col">
-									<p className="font-Inter text-xs text-[#9F9F9F]">Bank Name</p>
+									<p className="font-Inter text-xs  text-[#9F9F9F]">
+										Bank Name
+									</p>
 									<h5 className="text-[#525256] text-base font-Inter font-bold">
 										AB Bank Ltd.
 									</h5>
@@ -38,7 +40,7 @@ const AccountDetail = () => {
 									</h5>
 								</div>
 							</div>
-							<div className="flex justify-start gap-20">
+							<div className="flex flex-col md:flex-row gap-3 md:justify-start md:gap-20">
 								<div className="flex flex-col gap-0.5">
 									<p className="font-Inter text-xs text-[#9F9F9F]">
 										Branch Name
