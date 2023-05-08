@@ -43,6 +43,8 @@ const Dashboard = () => {
 					console.log(error.message);
 				}
 			})();
+		} else {
+			navigate("/login");
 		}
 	}, [token]);
 

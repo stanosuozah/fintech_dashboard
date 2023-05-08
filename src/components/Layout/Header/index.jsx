@@ -1,21 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import Notification from "../../../assets/icons/Notification";
 import GreaterThan from "../../../assets/icons/GreaterThan";
+import { useNavigate } from "react-router-dom";
+import Button from "../../Buttons";
+import Loader from "../../Loader";
 
+const date = new Date();
 const Header = ({ user }) => {
-	const date = new Date();
+	const [navIsOpen, setNavIsOpen] = useState(false);
+	const [loader, setLoader] = useState(false);
+	const navigate = useNavigate();
+
+	const handleNav = ({ user }) => {
+		setNavIsOpen(!navIsOpen);
+	};
+	const handleLogOut = () => {
+		setLoader(true);
+		setTimeout(() => {
+			localStorage.removeItem("token");
+			setLoader(false);
+			navigate("/login");
+		}, 3000);
+	};
+
 	return (
-		<header className="flex justify-between w-full gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
-			<p className="md:flex-1 flex justify-start font-Inter md:items-center items-center text-[#191919] md:text-2xl text-base font-bold">
-				Hello, {user?.name?.split(" ")[0]}
-				<span className="text-[#9F9F9F] text-xs md:text-sm ml-4 inline-flex items-center">
-					<div className="hidden md:mr-2 md:inline-flex">
-						<GreaterThan />
-						<GreaterThan />
-					</div>
-					{date.toDateString()}
+		<header className="relative flex justify-between w-full gap-2 px-3 py-3 bg-[#E8E8E8] items-center ">
+			{loader && <Loader />}
+			<div className="z-40 md:hidden lg:hidden">
+				{navIsOpen ? (
+					<AiOutlineClose className="h-6 w-6" onClick={handleNav} />
+				) : (
+					<AiOutlineMenu className="h-6 w-6" onClick={handleNav} />
+				)}
+			</div>
+
+			<div
+				className={`${
+					navIsOpen
+						? "absolute flex flex-col gap-2 px-2 items-start z-30 left-0 top-[72px] w-full bg-[#13312f] text-white h-screen "
+						: "md:flex hidden"
+				}`}
+			>
+				<div className="flex justify-right gap-2 items-center mt-2 md:items-start md:mt-0 md:gap-0 md:flex">
+					<img
+						src="images/stanimage.jpg"
+						width={32}
+						height={32}
+						className="rounded-full md:hidden"
+					/>
+					<p className="md:flex-1  flex md:flex md:justify-start  text-white font-Inter md:items-center items-start md:text-[#191919] md:text-2xl text-base font-bold">
+						Hi, {user?.name?.split(" ")[0]}
+						<span className="text-[#9F9F9F] text-xs md:text-sm md:ml-4 inline-flex items-center">
+							<div className="hidden md:mr-2 md:inline-flex">
+								<GreaterThan />
+								<GreaterThan />
+							</div>
+							<span className="hidden md:block">{date.toDateString()}</span>
+						</span>
+					</p>
+				</div>
+
+				<span
+					className="text-white text-base font-bold font-Inter flex self-start rounded-md cursor-pointer md:hidden"
+					onClick={handleLogOut}
+				>
+					<Button label="Logout" />
 				</span>
-			</p>
+			</div>
 			<div className="flex items-center w-full md:max-w-lg gap-3 md:gap-6 lg:gap-10 justify-end">
 				<Notification />
 				<div className="relative max-w-sm w-full ">
