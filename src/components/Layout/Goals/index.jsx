@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
 	Chart as ChartJS,
@@ -19,7 +19,7 @@ import Button from "../../Buttons";
 import useForm from "../../../hooks/useForm";
 import Loader from "../../Loader";
 import Toast from "../../Common/Toast";
-//   import faker from 'faker';
+import { useSelector } from "react-redux";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 
@@ -62,12 +62,14 @@ const options = {
 };
 
 const Goals = () => {
+	const [goal, setGoal] = useState({});
 	const [openModal, setOpenModal] = useState(false);
 	const [toast, setToast] = useState("");
 	const [loader, setLoader] = useState(false);
 	const [value, setValue] = useForm({});
 
 	const token = localStorage.getItem("token");
+	// let goals;
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -92,6 +94,31 @@ const Goals = () => {
 			}, 3000);
 		}
 	};
+	useEffect(() => {
+		if (token) {
+			(async function fetchGoals() {
+				try {
+					// const decodeToken = jwt.verify(token, "chatappbysamuel280692");
+					// const { id } = decodeToken;
+					// const id = "11";
+
+					const response = await axios.get(
+						`https://finebank.onrender.com/api/v1/goals`,
+						{ headers: { Authorization: `Bearer ${token}` } }
+					);
+					setGoal(response.data);
+
+					// localStorage.setItem("token", response.data.token);
+				} catch (error) {
+					setLoader(false);
+					console.log(error.message);
+				}
+			})();
+		}
+	}, [token]);
+	//Get the latest Goal and use it to display the target amount and achieved amount
+	const latestGoal = goal[goal.length - 1];
+	// console.log(latestGoal);
 	return (
 		<>
 			{loader && <Loader />}
@@ -144,7 +171,7 @@ const Goals = () => {
 													Target Achieved
 												</p>
 												<h1 className="font-Inter text-[#191919] font-bold">
-													$12,500
+													${latestGoal?.achievedAmount}
 												</h1>
 											</div>
 										</div>
@@ -155,7 +182,7 @@ const Goals = () => {
 													Target Achieved
 												</p>
 												<h1 className="font-Inter text-[#191919] font-bold">
-													$12,500
+													${latestGoal?.targetAmount}
 												</h1>
 											</div>
 										</div>

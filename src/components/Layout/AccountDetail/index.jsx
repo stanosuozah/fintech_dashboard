@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import GameIcon from "../../../assets/icons/GameIcon";
 import Button from "../../Buttons";
-import FoodIcon from "../../../assets/icons/FoodIcon";
-import HousingIcon from "../../../assets/icons/HousingIcon";
-import { useParams } from "react-router-dom";
 
 const AccountDetail = () => {
 	return (
