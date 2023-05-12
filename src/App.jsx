@@ -16,6 +16,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Overview from "./components/Layout/Overview";
 import AccountDetail from "./components/Layout/AccountDetail";
 import Settings from "./components/Layout/Settings";
+import AddAccount from "./components/Layout/AddAccount";
 
 function App() {
 	const Layout = () => {
@@ -39,7 +40,10 @@ function App() {
 					path: "/balance",
 					element: <Balance />,
 				},
-
+				{
+					path: "/balance/add",
+					element: <AddAccount />,
+				},
 				{
 					path: "/bills",
 					element: <Bills />,
@@ -49,7 +53,7 @@ function App() {
 					element: <Transactions />,
 				},
 				{
-					path: "/balance/:accountID",
+					path: "/balance/:id",
 					element: <AccountDetail />,
 				},
 				{
