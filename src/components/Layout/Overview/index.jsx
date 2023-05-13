@@ -6,7 +6,7 @@ import EmptyBalanceCard from "../../EmptyBalanceCard";
 import TotalBalanceCard from "../../TotalBalanceCard";
 import TargetIcon from "../../../assets/icons/TargetIcon";
 import TargetMonthIcon from "../../../assets/icons/TargetMonthIcon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BillsCard from "../../BillCard";
 import RecentTransactionCard from "../../RecentTransactionCard";
 import {
@@ -146,6 +146,7 @@ const token = localStorage.getItem("token");
 const date = new Date();
 
 const Overview = () => {
+	const navigate = useNavigate();
 	const [account, setAccount] = useState([]);
 	const [tab, setTab] = useState("all");
 	const [comparison, setComparison] = useState("weekly");

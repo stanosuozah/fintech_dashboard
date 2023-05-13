@@ -15,7 +15,10 @@ const TotalBalanceCard = ({
 				<h1 className="text-[#191919] font-bold text-xl font-inter">
 					${balance}
 				</h1>
-				<Link className="font-Inter text-[14px] font-medium text-[#525256]">
+				<Link
+					className="font-Inter text-[14px] font-medium text-[#525256]"
+					to="/balance"
+				>
 					All Accounts
 				</Link>
 			</div>
