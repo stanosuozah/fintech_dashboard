@@ -29,7 +29,9 @@ import ExpenseUpIcon from "../../../assets/icons/ExpenseUpIcon";
 import GameIcon from "../../../assets/icons/GameIcon";
 import OthersIcon from "../../../assets/icons/OthersIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
 import "swiper/css";
+import { useSelector } from "react-redux";
 // import faker from "faker";
 
 ChartJS.register(
@@ -140,14 +142,44 @@ const options = {
 		},
 	},
 };
-
+const token = localStorage.getItem("token");
 const date = new Date();
+
 const Overview = () => {
+	const [account, setAccount] = useState([]);
 	const [tab, setTab] = useState("all");
 	const [comparison, setComparison] = useState("weekly");
 	const [weekly, setWeekly] = useState(true);
 	const [monthly, setMonthly] = useState(false);
 	const [yearly, setYearly] = useState(false);
+	const [loader, setLoader] = useState(false);
+	const [goal, setGoal] = useState([]);
+	const [active, setActive] = useState(0);
+
+	const handleActive = (action) => {
+		setActive(active + action);
+		console.log(account?.length);
+		console.log(active);
+		console.log(active >= 0 || active <= account?.length - 1);
+	};
+	useEffect(() => {
+		if (token) {
+			(async function fetchAccounts() {
+				try {
+					setLoader(true);
+					const response = await axios.get(
+						`https://finebank.onrender.com/api/v1/accounts`,
+						{ headers: { Authorization: `Bearer ${token}` } }
+					);
+					setAccount(response.data);
+					setLoader(false);
+				} catch (error) {
+					setLoader(false);
+					console.log(error.message);
+				}
+			})();
+		}
+	}, [token]);
 
 	const handleComparison = (e) => {
 		setComparison(e.target.value);
@@ -158,6 +190,28 @@ const Overview = () => {
 		comparison === "monthly" ? setMonthly(true) : setMonthly(false);
 		comparison === "yearly" ? setYearly(true) : setYearly(false);
 	}, [comparison]);
+
+	useEffect(() => {
+		if (token) {
+			(async function fetchGoals() {
+				try {
+					setLoader(true);
+
+					const response = await axios.get(
+						`https://finebank.onrender.com/api/v1/goals`,
+						{ headers: { Authorization: `Bearer ${token}` } }
+					);
+					setGoal(response.data);
+					setLoader(false);
+
+					// localStorage.setItem("token", response.data.token);
+				} catch (error) {
+					setLoader(false);
+				}
+			})();
+		}
+	}, [token]);
+	const latestGoal = goal[goal.length - 1];
 	return (
 		<div className="flex">
 			<div className="relative h-auto md:w-1/3 lg:w-1/5"></div>
@@ -170,14 +224,47 @@ const Overview = () => {
 							</h3>
 							<div className="flex flex-col gap-1 px-3 py-2 w-full h-[232px] bg-white rounded-lg shadow-xl">
 								<TotalBalanceCard
-									accountType="Credit Card"
-									balance="25000"
+									accountType={account[active]?.accountType}
+									balance={account[active]?.balance}
 									cardImage="../images/mastercard.png"
 									accountNumber={
-										`23232324647324`.slice(0, -4).replace(/./g, "*") +
-										`23232324647324`.slice(-4)
+										account[active]?.accountNumber
+											.slice(0, -4)
+											.replace(/./g, "*") +
+										account[active]?.accountNumber.slice(-4)
 									}
 								/>
+								<div className="flex justify-between items-center">
+									<button
+										disabled={active == 0}
+										className={`${
+											active == 0 ? "pointer-events-none" : ""
+										}font-Inter text-xs font-bold`}
+										onClick={() => handleActive(-1)}
+									>
+										<span className="mr-2">&lt;</span>Previous
+									</button>
+									<div className="flex justify-between gap-2">
+										{account.map((i, index) => (
+											<span
+												className={`${
+													active == index ? "bg-[#299D91]" : "bg-gray-400"
+												} w-2 h-2 rounded-full `}
+											></span>
+										))}
+									</div>
+									<button
+										disabled={active == account?.length - 1}
+										className={`${
+											active == account?.length - 1
+												? "pointer-events-none"
+												: " "
+										}font-Inter text-xs font-bold`}
+										onClick={() => handleActive(+1)}
+									>
+										Next<span className="ml-2">&gt;</span>
+									</button>
+								</div>
 							</div>
 						</div>
 						<div className="flex flex-col   md:w-[48.5%] lg:w-1/3 gap-1 md:gap-2 w-full ">
@@ -188,9 +275,12 @@ const Overview = () => {
 								<div className="flex justify-between items-center">
 									<div className="flex justify-between gap-3 items-center">
 										<h1 className="font-Inter text-[#191919] font-bold text-xl">
-											$20,000
+											$
+											{latestGoal?.targetAmount
+												? latestGoal?.targetAmount
+												: "0.00"}
 										</h1>
-										<Link>
+										<Link to="/goals">
 											<svg
 												width="32"
 												height="32"
@@ -223,7 +313,7 @@ const Overview = () => {
 										</Link>
 									</div>
 									<span className="fontt-Inter font-medium text-[14px] text-[#525256]">
-										{date.toLocaleDateString()}
+										{new Date(latestGoal?.month).toDateString()}
 									</span>
 								</div>
 								<div className="flex justify-between gap-2">
@@ -235,7 +325,10 @@ const Overview = () => {
 													Target Achieved
 												</p>
 												<h1 className="font-Inter text-[#191919] font-bold">
-													$12,600
+													$
+													{latestGoal?.targetAmount
+														? latestGoal?.targetAmount
+														: "0.00"}
 												</h1>
 											</div>
 										</div>
@@ -244,10 +337,13 @@ const Overview = () => {
 											<TargetMonthIcon />
 											<div className="flex flex-col">
 												<p className="font-Inter text-xs text-[#878787]">
-													This month Target
+													Achieved Amount
 												</p>
 												<h1 className="font-Inter text-[#191919] font-bold">
-													$12,500
+													$
+													{latestGoal?.achievedAmount
+														? latestGoal?.achievedAmount
+														: "0.00"}
 												</h1>
 											</div>
 										</div>

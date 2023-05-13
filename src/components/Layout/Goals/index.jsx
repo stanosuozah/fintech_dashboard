@@ -160,7 +160,7 @@ const Goals = () => {
 									</h1>
 									<select className="font-Inter text-xs font-medium">
 										<option className="font-Inter text-sm">
-											01 May - 31 May
+											{new Date(latestGoal?.month).toDateString()}
 										</option>
 									</select>
 								</div>
