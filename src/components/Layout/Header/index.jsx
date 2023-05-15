@@ -30,16 +30,16 @@ const Header = ({ user }) => {
 			{loader && <Loader />}
 			<div className="z-40 md:hidden lg:hidden">
 				{navIsOpen ? (
-					<AiOutlineClose className="h-6 w-6" onClick={handleNav} />
+					<AiOutlineClose className="h-6 w-6 text-white" onClick={handleNav} />
 				) : (
-					<AiOutlineMenu className="h-6 w-6" onClick={handleNav} />
+					<AiOutlineMenu className="h-6 w-6 text-white" onClick={handleNav} />
 				)}
 			</div>
 			{/* MOBILE menu */}
 			<div
 				className={`${
 					navIsOpen
-						? "absolute flex flex-col gap-2 px-2 items-start z-30 left-0 top-[72px] w-full bg-[#13312f] text-white h-screen "
+						? "absolute flex flex-col gap-2 px-2 items-start z-30 pt-16 left-0 top-[0] w-full bg-[#13312f] text-white h-screen "
 						: "md:flex hidden"
 				}`}
 			>
