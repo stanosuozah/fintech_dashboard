@@ -35,7 +35,7 @@ const Header = ({ user }) => {
 					<AiOutlineMenu className="h-6 w-6" onClick={handleNav} />
 				)}
 			</div>
-
+			{/* MOBILE menu */}
 			<div
 				className={`${
 					navIsOpen
